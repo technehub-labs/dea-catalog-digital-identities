@@ -1,25 +1,32 @@
 # Metamodel Pointer — Digital Identity
-# Auto-generated from OpenDEAM v0.2.1 (dea-architecture-framework, ADR-0002).
-# Do not edit manually — allocation changes go through the root model
-# (structural: ADR + minor bump; additive: PR + patch bump).
-metamodel:
-  version: v0.2.1
-  entity_id: dea:entity-digital-identity
-  class_alias: DI
-  layer: L4
-  building_block: L4-digital-trust
-  viewer_url: "https://technehub-labs.github.io/metamodel/?entity=DI"
-
-catalog:
-  name: Digital Identity
-  repo: technehub-labs/dea-catalog-digital-identities
-  status: planned
-
+#
+# Two consumers, two blocks (see FOUNDATIONS §5):
+#   - the top-level identity keys are consumed by the vendored
+#     regenerate_catalog.py to build CATALOG.yaml's catalog block;
+#   - the `metamodel:` allocation block is validated by
+#     dea-architecture-framework validate-against-model.yml
+#     against the pinned root-model ref (v0.8.0), and asserted
+#     locally by scripts/check_pointer.py.
+#
+# Allocation changes go through the root model, not this file.
+id: dea:catalog-digital-identities
+name: Digital Identity
+abbreviation: DI
+version: 0.1.0
+status: active
+metamodel_version: 1.0.0
+owner: TechNeHub Labs
 description: |
   A digital representation (twin) of a stakeholder or actor for authentication, authorisation, and traceability.
-
+metamodel:
+  building_block: L4-digital-trust
+  class_alias: DI
+  entity_id: dea:entity-digital-identity
+  layer: L4
+  version: v0.8.0
+  viewer_url: https://technehub-labs.github.io/metamodel/?entity=DI
 links:
   metamodel_repo: https://github.com/technehub-labs/dea-metamodel
   root_model: https://github.com/technehub-labs/dea-architecture-framework
-  viewer: "https://technehub-labs.github.io/metamodel/?entity=DI"
+  viewer: https://technehub-labs.github.io/metamodel/?entity=DI
   github: https://github.com/technehub-labs/dea-catalog-digital-identities
